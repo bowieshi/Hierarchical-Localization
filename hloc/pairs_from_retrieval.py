@@ -107,6 +107,7 @@ def main(
     db_desc = get_descriptors(db_names, db_descriptors, name2db)
     query_desc = get_descriptors(query_names, descriptors)
     sim = torch.einsum("id,jd->ij", query_desc.to(device), db_desc.to(device))
+    print("sim: ", sim.shape)
 
     # Avoid self-matching
     self = np.array(query_names)[:, None] == np.array(db_names)[None]

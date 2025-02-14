@@ -34,6 +34,7 @@ def parse_image_list(path, with_intrinsics=False):
 def parse_image_lists(paths, with_intrinsics=False):
     images = []
     files = list(Path(paths.parent).glob(paths.name))
+    print(files)
     assert len(files) > 0
     for lfile in files:
         images += parse_image_list(lfile, with_intrinsics=with_intrinsics)
